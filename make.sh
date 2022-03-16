@@ -1,8 +1,12 @@
 #!/bin/bash
-
+FLAGS=
 case "$1" in
         rk3568 | RK3568 | 3568)
                 CHIP=3568;
+                ;;
+        ACPI)
+                CHIP=3588;
+                FLAGS="-D ROCKCHIP_ACPIEN"
                 ;;
         *)
                 CHIP=3588
@@ -19,7 +23,7 @@ export WORKSPACE=$TOP_DIR/uefi-monorepo
 export PACKAGES_PATH=$WORKSPACE/edk2:$WORKSPACE/edk2-platforms:$WORKSPACE/edk2-non-osi
 . edk2/edksetup.sh BaseTools &&
 make -C edk2/BaseTools &&
-build -a AARCH64 -t GCC5 -p edk2-platforms/Platform/Rockchip/RK$CHIP/RK$CHIP.dsc &&
+build -a AARCH64 -t GCC5 -p edk2-platforms/Platform/Rockchip/RK$CHIP/RK$CHIP.dsc $FLAGS &&
 echo "cd u-boot and re-packet uboot.img: ./scripts/fit-repack.sh -f uboot.img -d unpack/" &&
 cd ../u-boot &&
 mkdir -p unpack &&
