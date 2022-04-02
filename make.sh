@@ -19,7 +19,7 @@ COMMON_DIR=`dirname $CMD`
 TOP_DIR=$(realpath $COMMON_DIR/..)
 echo $TOP_DIR
 export GCC5_AARCH64_PREFIX=$TOP_DIR/prebuilts/gcc/linux-x86/aarch64/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-
-export WORKSPACE=$TOP_DIR/uefi-monorepo
+export WORKSPACE=$COMMON_DIR
 export PACKAGES_PATH=$WORKSPACE/edk2:$WORKSPACE/edk2-platforms:$WORKSPACE/edk2-non-osi
 . edk2/edksetup.sh BaseTools &&
 make -C edk2/BaseTools &&
