@@ -1,5 +1,7 @@
 #!/bin/bash
 FLAGS=
+# PCIE: ROCKCHIP_ACPIEN
+# Display Support: ROCKCHIP_VOPEN
 case "$1" in
         rk3568 | RK3568 | 3568)
                 CHIP=3568;
@@ -10,6 +12,7 @@ case "$1" in
                 ;;
         *)
                 CHIP=3588
+#                FLAGS="-D ROCKCHIP_VOPEN"
                 ;;
 esac
 echo Start to build rk$CHIP UEFI
@@ -32,3 +35,7 @@ cp uboot.img uboot_uefi.img
 cp $WORKSPACE/Build/RK$CHIP/DEBUG_GCC5/FV/BL33_AP_UEFI.fd unpack/uboot &&
 ./scripts/fit-repack.sh -f uboot_uefi.img -d unpack/
 mv uboot_uefi.img $WORKSPACE/uboot_uefi.img
+echo "FLAGS=:" $FLAGS
+echo "*********************************************************************"
+echo "** uefi document : https://10.10.10.29/c/rk/internal-docs/+/149726 **"
+echo "*********************************************************************"
