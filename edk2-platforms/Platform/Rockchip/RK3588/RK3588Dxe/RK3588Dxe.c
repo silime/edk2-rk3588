@@ -84,6 +84,15 @@ MtcmosInit (
   //} while ((Data & PW_EN0_G3D) == 0);
 }
 
+STATIC
+VOID
+GmacIomuxInit (
+  IN VOID
+  )
+{
+  GmacIomux(0);
+}
+
 #ifdef ROCKCHIP_RK809_DUAL
 static struct regulator_init_data rk806_master[] = {
 	RK8XX_VOLTAGE_INIT(MASTER_BUCK1, 750000),
@@ -357,6 +366,8 @@ RK3588InitPeripherals (
 #endif
 
   ComboPhyInit();
+
+  GmacIomuxInit();
 
   return EFI_SUCCESS;
 }
