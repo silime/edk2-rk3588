@@ -12,7 +12,7 @@ case "$1" in
                 ;;
         *)
                 CHIP=3588
-#                FLAGS="-D ROCKCHIP_PCIE30"
+                FLAGS="-D ROCKCHIP_PCIE30"
 #                FLAGS="-D ROCKCHIP_VOPEN"
                 ;;
 esac

@@ -842,7 +842,7 @@ SysInfoUpdateSmbiosType1 (
   UINT32 BoardRevision = 0;
   UINT64 BoardSerial = 0;
 
-  AsciiStrCpyS (mSysInfoProductName, sizeof (mSysInfoProductName),"RK3588");
+  AsciiStrCpyS (mSysInfoProductName, sizeof (mSysInfoProductName),"RADXA ROCK 5B");
   AsciiStrCpyS (mSysInfoManufName, sizeof (mSysInfoManufName),"Rockchip");
   AsciiSPrint (mSysInfoVersionName, sizeof (mSysInfoVersionName), "%X", BoardRevision);
   I64ToHexString (mSysInfoSKU, sizeof (mSysInfoSKU), BoardRevision);
