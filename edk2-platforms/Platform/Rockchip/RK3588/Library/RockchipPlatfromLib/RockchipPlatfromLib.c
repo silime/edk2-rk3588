@@ -79,7 +79,7 @@ NorFspiIomux(void)
   /* io mux */
   MmioWrite32(NS_CRU_BASE + CRU_CLKSEL_CON78,
              (((0x3 << 12) | (0x3f << 6)) << 16) | (0x0 << 12) | (0x3f << 6));
-#define FSPI_M1
+#define FSPI_M2
 #if defined(FSPI_M0)
    /*FSPI M0*/
   BUS_IOC->GPIO2A_IOMUX_SEL_L = ((0xF << 0) << 16) | (2 << 0); //FSPI_CLK_M0
